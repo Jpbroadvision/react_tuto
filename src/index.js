@@ -1,9 +1,11 @@
 import React from "react"
 import reactDom from "react-dom"
+//COMPNENTS
+import Header from "./components/header"
 const App = () =>{
   return (
     <div>
-      <p>Hello Change <br></br> Welcome to the world of react</p>
+      <Header/>
     </div>
   )
 }
