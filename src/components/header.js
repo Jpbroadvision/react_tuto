@@ -1,6 +1,6 @@
 //ES5
 // import React from "react"; 
-import React, {Component} from "react"; 
+import React from "react"; 
 
 // const getYear = () => {
 //     const newDate = new Date();
@@ -19,29 +19,14 @@ import React, {Component} from "react";
 //     }
 // }
 //from ES6
-class Header extends Component {
-    state = {
-        active: false,
-        keywords:"hello"}
-    inputOnchangeHandler = (event) =>{
-        const value = event.target.value ===''? false:true;
-
-        // document.querySelector(".anser").innerHTML =`Hello ${event.target.value}`;
-    this.setState({
-        active: value,
-        keywords: event.target.value
-    })
-    }
-    render() {
-        console.log(this.state.keywords);
+const Header = (props) => {
         return (
-            <header style={{background:`${this.state.active ?'red':'blue'}`}}>
+            <header>
                 <div className="logo" >Logo</div>
-                <input type="text" onChange={this.inputOnchangeHandler}/>
+                <input type="text" onChange={props.keywords}/>
                 <p className="anser"></p>
             </header>
         )
 
     }
-}
 export default Header;
