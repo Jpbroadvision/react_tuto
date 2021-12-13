@@ -1,5 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+//COMPONENTS
+import Home from '../src/components/home';
+import POST from '../src/components/home';
+import Profile from '../src/components/home';
 
 const App = () =>{
 
