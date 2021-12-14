@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import {BrowserRouter, Route} from 'react-router-dom'
 //COMPONENTS
-import Home from '../src/components/home';
-import POST from '../src/components/home';
-import Profile from '../src/components/home';
+import Home from './components/home';
+import Post from './components/post';
+import Profile from './components/profile';
 
 const App = () =>{
 
   return(
     <div>
-      <h3>Hello there</h3>
+      <BrowserRouter>
+      <Route path='/home' component = {Home}/>
+      <Route path='/posts' component = {Post}/>
+      <Route path='/profile' component = {Profile}/>
+      </BrowserRouter>
     </div>
   )
 }
