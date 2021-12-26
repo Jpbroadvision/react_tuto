@@ -26,14 +26,17 @@ const Lakers = (props) => {
   )
 }
 const App = (props) => {
+  const [manager, setManager] = useState("John Paul");
   const [status, setStatus] = useState("Closed");
   return (
     <>
     <div>
+      The App Manager is {manager}<br></br>
       The App is {status}
       {props.reason ==="good" ? <Weather season ="cold"/>: <Lakers  season="hot"/>}
       <button onClick={() => setStatus("Open")}>Open</button>
       <button onClick={() => setStatus("Closed")}>Close</button>
+      <button onClick={() => setManager("Kpantey")}>Change Manager</button>
     </div>
     </>
   )
