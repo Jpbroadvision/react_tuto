@@ -28,12 +28,14 @@ const Lakers = (props) => {
 const App = (props) => {
   const [status, setStatus] = useState("Closed");
   return (
+    <>
     <div>
       The App is {status}
       {props.reason ==="good" ? <Weather season ="cold"/>: <Lakers  season="hot"/>}
       <button onClick={() => setStatus("Open")}>Open</button>
       <button onClick={() => setStatus("Closed")}>Close</button>
     </div>
+    </>
   )
 }
 ReactDOM.render(<App reason="bad"/>, document.querySelector('#root'))
