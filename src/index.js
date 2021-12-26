@@ -25,11 +25,14 @@ const Lakers = (props) => {
     </div>
   )
 }
+
 const App = (props) => {
+  const [checked, setChecked] = useState(false);
   const [manager, setManager] = useState("John Paul");
   const [status, setStatus] = useState("Closed");
   return (
     <>
+    <h1><input type="checkbox" value={checked} onChange={() => setChecked(checked => !checked)} />{checked ? "Checked":"Not Checked"}</h1>
     <div>
       The App Manager is {manager}<br></br>
       The App is {status}
