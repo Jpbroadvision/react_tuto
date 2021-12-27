@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 // import {BrowserRouter as Router,Link, Route, Routes} from 'react-router-dom'
 // //COMPONENTS
@@ -15,7 +15,7 @@ import ReactDOM from 'react-dom';
 
 const Weather = (props) => {
   return (
-    <div>The Weather is { props.season }</div>
+    <div>The Weather is {props.season}</div>
   )
 }
 const Lakers = (props) => {
@@ -26,28 +26,47 @@ const Lakers = (props) => {
   )
 }
 
+const FetchGithubUsers = ({ userName }) => {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${userName}`)
+      .then(res => res.json())
+      .then(setData)
+      .catch(console.error);
+  }, []);
+  if (data) {
+    return <div>{JSON.stringify(data)}</div>
+  }
+  return null;
+}
 const App = (props) => {
-  const [val, setVal] = useState("");
-  const [val2, setVal2] = useState("");
-  useEffect(() =>{console.log(`field 1: ${val}`)}, [val]);
-  useEffect(() =>{console.log(`field 2: ${val2}`)},[val2]);
-  const [checked, setChecked] = useState(false);
-  const [manager, setManager] = useState("John Paul");
-  const [status, setStatus] = useState("Closed");
+  // const [val, setVal] = useState("");
+  // const [val2, setVal2] = useState("");
+  // useEffect(() => { console.log(`field 1: ${val}`) }, [val]);
+  // useEffect(() => { console.log(`field 2: ${val2}`) }, [val2]);
+  // const [checked, setChecked] = useState(false);
+  // const [manager, setManager] = useState("John Paul");
+  // const [status, setStatus] = useState("Closed");
   return (
     <>
-    <label>Favourite Phrase: <input value={val} onChange={e => setVal(e.target.value)} /></label><br></br>
-    <label>Second Favourite Phrase: <input value={val2} onChange={e => setVal2(e.target.value)} /></label>
-    <h1><input type="checkbox" value={checked} onChange={() => setChecked(checked => !checked)} />{checked ? "Checked":"Not Checked"}</h1>
-    <div>
-      The App Manager is {manager}<br></br>
-      The App is {status}
-      {props.reason ==="good" ? <Weather season ="cold"/>: <Lakers  season="hot"/>}
-      <button onClick={() => setStatus("Open")}>Open</button>
-      <button onClick={() => setStatus("Closed")}>Close</button>
-      <button onClick={() => setManager("Kpantey")}>Change Manager</button>
-    </div>
+       {/* <label>Favourite Phrase: <input value={val} onChange={e => setVal(e.target.value)} /></label><br></br>
+       <label>Second Favourite Phrase: <input value={val2} onChange={e => setVal2(e.target.value)} /></label>
+       <h1><input type="checkbox" value={checked} onChange={() => setChecked(checked => !checked)} />{checked ? "Checked" : "Not Checked"}</h1>
+       <div>
+         The App Manager is {manager}<br></br>
+         The App is {status}
+         {props.reason === "good" ? <Weather season="cold" /> : <Lakers season="hot" />}
+         <button onClick={() => setStatus("Open")}>Open</button>
+         <button onClick={() => setStatus("Closed")}>Close</button>
+         <button onClick={() => setManager("Kpantey")}>Change Manager</button>
+      </div> */}
+        <label>
+          <h1>User Data</h1>
+          <>
+          <FetchGithubUsers userName="Jpbroadvision" />
+          </>
+        </label>
     </>
   )
 }
-ReactDOM.render(<App reason="bad"/>, document.querySelector('#root'))
+ReactDOM.render(<App reason="bad" />, document.querySelector('#root'))
