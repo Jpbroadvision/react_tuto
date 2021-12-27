@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Switch} from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router,Link, Route, Routes, Switch} from 'react-router-dom'
+import {BrowserRouter as Router,Link, Route, Routes} from 'react-router-dom'
 //COMPONENTS
 import Home from './components/home';
 import Post from './components/post';
