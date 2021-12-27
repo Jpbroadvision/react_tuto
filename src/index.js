@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router,Link, Route, Routes} from 'react-router-dom'
+import {BrowserRouter as Router,Link, Route, Routes, Switch} from 'react-router-dom'
 //COMPONENTS
 import Home from './components/home';
 import Post from './components/post';
@@ -19,12 +19,14 @@ const App = () =>{
             <Link to='/profile'>Profile</Link>
           </header>
         </div>
+        <Switch>
       <Routes>
       <Route path="/" exact component ={<Home />}></Route>
       <Route path="/post" exact component ={<Post />}></Route>
       <Route path="/post/:id" exact component ={<PostItem />}></Route>
       <Route path="/profile" exact component ={<Profile />}></Route>
       </Routes>
+        </Switch>
       </Router>
   )
 }
