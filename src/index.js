@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 // import {BrowserRouter as Router,Link, Route, Routes} from 'react-router-dom'
 // //COMPONENTS
@@ -27,11 +27,17 @@ const Lakers = (props) => {
 }
 
 const App = (props) => {
+  const [val, setVal] = useState("");
+  const [val2, setVal2] = useState("");
+  useEffect(() =>{console.log(`field 1: ${val}`)}, [val]);
+  useEffect(() =>{console.log(`field 2: ${val2}`)},[val2]);
   const [checked, setChecked] = useState(false);
   const [manager, setManager] = useState("John Paul");
   const [status, setStatus] = useState("Closed");
   return (
     <>
+    <label>Favourite Phrase: <input value={val} onChange={e => setVal(e.target.value)} /></label><br></br>
+    <label>Second Favourite Phrase: <input value={val2} onChange={e => setVal2(e.target.value)} /></label>
     <h1><input type="checkbox" value={checked} onChange={() => setChecked(checked => !checked)} />{checked ? "Checked":"Not Checked"}</h1>
     <div>
       The App Manager is {manager}<br></br>
