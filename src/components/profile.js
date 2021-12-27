@@ -1,8 +1,11 @@
 import React from "react";
 
-const Profile = () => {
+const Profile = (props) => {
+    const redict = ()=>{return props.history.push("/")}
+    const whatToDo= "yes";
     return (
         <div>
+            {whatToDo==="yes" ? "Profile": redict}
             Profile
         </div>
     )
