@@ -35,7 +35,17 @@ const FetchGithubUsers = ({ userName }) => {
       .catch(console.error);
   }, []);
   if (data) {
-    return <div>{JSON.stringify(data)}</div>
+    return <div>
+      UserName: {data.login}<br/>
+      Avatar_url: <img src={data.avatar_url} /><br/>
+      
+      url: {data.url}<br/>
+      Name: {data.name}<br/>
+      Company: {data.company}<br/>
+      Location: {data.location}<br/>
+      Bio: {data.bio}
+
+      </div>
   }
   return null;
 }
