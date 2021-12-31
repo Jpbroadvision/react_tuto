@@ -74,71 +74,11 @@
             TRANSITIONS BASIC 
 ========================================*/
 
-.square {
-  background: red;
-  height:100px;
-  opacity:1;
-  transition: all 2s ease;
-}
-
-.square.square-entering {
-  opacity: 1;
-  transform: translateX(0%);
-}
-
-.square.square-entered {
-  background: blue;
-}
-
-.square.square-exiting {
-  background: green
-}
-
-.square.square-exited {
-  opacity: 0;
-  transform: translateX(-100%)
-}
-
-
 /*=======================================
                 CSSTRANSITIONS
 ========================================*/
 
-.square.false {
-  background: #feaaa3;
-  transform: translateX(-100%);
-}
-
-.square.true {
-  transform: translateX(0%);
-}
-
-.square-enter.square-enter-active {
-  background: blue;
-}
-
-.square-exit.square-exit-active {
-  background: green;
-}
-
-
 /*=======================================
-            TRANSITIONS GROUP 
+                TRANSITIONS GROUP 
 ========================================*/
 
-.item {
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: all .5s ease-in;
-}
-
-.item.active,
-.item-enter.item-enter-active {
-  opacity: 1;
-  transform: translateX(0%);
-}
-
-.item-exit.item-exit-active {
-  opacity: 0;
-  transform: translateX(-100%)
-}
